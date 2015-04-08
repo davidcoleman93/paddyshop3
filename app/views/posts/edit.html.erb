@@ -1,0 +1,13 @@
+<h2>Edit Comment</h2>
+<div class=”posts edit”>
+<%= form_for [@product, @post] do |f| %>
+	<table summary="Product form fields">
+    <tr>
+	<th>Content</th>
+	<td><%= f.text_area(:content) %></td>
+    </tr>
+	<div class="actions">
+    <%= f.submit %>
+	</div>
+<% end %>
+</div>

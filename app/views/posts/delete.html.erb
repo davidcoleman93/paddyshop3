@@ -1,0 +1,10 @@
+<div class="issues delete">
+<h1>Delete Product</h1>
+<%= form_tag product_posts_path([@product, @post]), method: "delete" do |f| %>
+<p>Are you sure you want to permanently delete this product?</p>
+
+<div class="form-buttons">
+    <%= submit_tag("Delete Product") %>
+</div>
+
+<% end %>

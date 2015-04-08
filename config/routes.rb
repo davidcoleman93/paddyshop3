@@ -8,7 +8,9 @@ Paddyshop::Application.routes.draw do
   #get "session/index"
   #get "session/new"
   resources :users
-  resources :products
+  resources :products do
+	resources :posts
+  end
   resources :sessions, only: [:create]
   
   #get "users/index"

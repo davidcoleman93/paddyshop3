@@ -29,3 +29,26 @@
 	    </tr>
 	</table>
 	<%= link_to("Back to products",{:action => "index"}) %>
+	
+	<h2>Please leave a comment:</h2>
+	<%= form_for([@product, Post.new]) do |f| %>
+	<%= f.text_area :content, :rows => 3 %>
+	<div class="actions">
+		<%= f.submit "Post a Comment"%>
+	</div>
+	<% end %>
+	
+	<% if @product.posts.empty? %>
+		<h3>You are the first  to comment </h3>
+	<% else %>
+		<h2>What others felt about this:</h2>
+		<% @product.posts.reverse.each do |post| %>
+			<p>Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %></p>
+			<p></p>
+			<p><%= post.content %></p>
+			<p></p>
+			<p><%= link_to 'Edit Comment', edit_product_post_path(@product, post) %></p>
+			<p><%= link_to "delete", [@product, post], :method => :delete, :confirm => "Are you sure?" %></p>
+			<p></p>
+		<% end %>
+	<% end %>
