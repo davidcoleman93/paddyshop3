@@ -1,4 +1,9 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource :product
+  load_and_authorize_resource :through => :product
+
+  skip_authorize_resource :only => :show  
+  skip_authorize_resource :product, :only => :show
   
   def create
 	@product = Product.find params[:product_id]

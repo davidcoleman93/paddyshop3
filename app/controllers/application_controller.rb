@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
   
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:notice] = "Access denied."
+	redirect_to users_url
+  end
+  
   private
 
   #Makes current_user available in all controllers

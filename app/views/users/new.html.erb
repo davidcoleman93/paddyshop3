@@ -30,6 +30,12 @@
 	<th>DOB</th>
 	<td><%= f.date_select(:DOB, :order => [:day, :month, :year], :start_year => 2015, :end_year => 1910) %></td>
     </tr>
+	<th>Admin?</th>
+	<td><%= f.select :admin, [["Yes", 1], ["No", 0]] %></td>
+    </tr>
+	<th>Customer?</th>
+	<td><%= f.select :customer, [["Yes", 1], ["No", 0]] %></td>
+    </tr>
 	</table>
 	<div class="actions">
     <%= f.submit %>
