@@ -1,0 +1,31 @@
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<div class=”products show”>
+	<h2>Show Product</h2>
+	<table summary = “Product detail view”>
+	     <tr>
+		<th>Title</th>
+		<td><%= @product.title %></td>
+	    </tr>
+		<th>Manufacturer</th>
+		<td><%= @product.manufacturer %></td>
+	    </tr>
+		<th>Category</th>
+		<td><%= @product.category %></td>
+	    </tr>
+		<th>Image</th>
+		<td><%= @product.image %></td>
+	    </tr>
+		<th>Stock Level</th>
+		<td><%= @product.stock_level %></td>
+	    </tr>
+		<tr>
+		<th>Price</th>
+		<td><%= @product.price %></td>
+	    </tr>
+	</table>
+	<%= link_to("Back to products",{:action => "index"}) %>

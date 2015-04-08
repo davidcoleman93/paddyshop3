@@ -1,0 +1,44 @@
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<div class="users index">
+<h1>Users</h1>
+
+<li><%= link_to("New Product" , :action => "new" ) %></li>
+<table class ="listing" summary="User list">
+<tr class = "header">
+	<th>&nbsp;</th>
+	<th>Title</th>
+	<th>Manufacturer</th>
+	<th>Category</th>
+	<th>Image</th>
+	<th>Stock Level</th>
+	<th>Price</th>
+<% @products.each do |product| %>
+<tr>
+<td>
+</td>
+		<td><%= product.title %></td>
+	    		
+		<td><%= product.manufacturer %></td>
+		
+		<td><%= product.category %></td>
+		
+		<td><%= product.image %></td>
+		
+		<td><%= product.stock_level %></td>
+		
+		<td><%= product.price %></td>
+		
+		<td class = "actions">
+				<%= link_to("Show", {:action => "show" , :id => product.id }, :class => "action show") %>
+				<%= link_to("Edit", {:action => "edit" , :id => product.id }, :class => "action edit") %>
+				<%= link_to("Delete", {:action => "delete" , :id  => product.id }, :class => "action delete") %>
+		</td>	
+	</tr>
+   <% end %>
+  </table>
+ </div>
