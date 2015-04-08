@@ -1,0 +1,28 @@
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<div class=”users show”>
+	<h2>Show User</h2>
+	<table summary = “User detail view”>
+	     <tr>
+		<th>First Name</th>
+		<td><%= @user.first_name %></td>
+	    </tr>
+		<th>Last Name</th>
+		<td><%= @user.last_name %></td>
+	    </tr>
+		<th>Gender</th>
+		<td><%= @user.gender %></td>
+	    </tr>
+		<th>Email</th>
+		<td><%= @user.email %></td>
+	    </tr>
+		<th>DOB</th>
+		<td><%= @user.DOB %></td>
+	    </tr>
+		<tr>
+	</table>
+	<%= link_to("Back to users",{:action => "index"}) %>

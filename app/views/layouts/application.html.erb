@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Paddyshop</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  
+  <div class="identity">
+	<% if current_user.present? %>
+		Welcome <%= current_user.email %>! | <%= link_to 'Sign Out', logout_path %>
+	<% else %>
+		<%= link_to 'Sign In', login_path %>
+	<% end %>
+  </div>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
