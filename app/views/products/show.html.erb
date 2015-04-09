@@ -33,6 +33,8 @@
 	<h2>Please leave a comment:</h2>
 	<%= form_for([@product, Post.new]) do |f| %>
 	<%= f.text_area :content, :rows => 3 %>
+	<h4>Rating</h4>
+	<%= f.select :rating, [["5", 5], ["4", 4], ["3", 3], ["2", 2], ["1", 1]] %>
 	<div class="actions">
 		<%= f.submit "Post a Comment"%>
 	</div>
@@ -46,6 +48,7 @@
 			<p>Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %></p>
 			<p></p>
 			<p><%= post.content %></p>
+			<p><b>Rating:</b> <%= post.rating %></p>
 			<p></p>
 			<p><%= link_to 'Edit Comment', edit_product_post_path(@product, post) %></p>
 			<p><%= link_to "delete", [@product, post], :method => :delete, :confirm => "Are you sure?" %></p>

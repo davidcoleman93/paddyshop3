@@ -6,6 +6,9 @@
 	<th>Content</th>
 	<td><%= f.text_area(:content) %></td>
     </tr>
+	<th>Rating</th>
+	<td><%= f.select :rating, [["5", 5], ["4", 4], ["3", 3], ["2", 2], ["1", 1]] %></td>
+	</tr>
 	<div class="actions">
     <%= f.submit %>
 	</div>
