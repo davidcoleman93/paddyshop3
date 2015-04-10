@@ -3,6 +3,30 @@ class ProductsController < ApplicationController
   
   def index
 	@products = Product.all
+	
+	
+	if params[:search]
+		if params[:type] == "Title"
+			@products = Product.search(params[:search]).order("created_at DESC")
+		end
+		if params[:type] == "Manufacturer"
+			@products = Product.manufacturer_search(params[:search]).order("created_at DESC")
+		end
+		if params[:type] == "Category"
+			@products = Product.category_search(params[:search]).order("created_at DESC")
+		end
+
+    else
+      @products = Product.order("created_at DESC")
+    end
+  end
+  
+  def search
+	if params[:query]
+		@products = Product.search(params[:query])
+	else
+		@products = []
+	end
   end
 
   def new
