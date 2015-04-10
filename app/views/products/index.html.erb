@@ -52,6 +52,7 @@
 				<%= link_to("Show", {:action => "show" , :id => product.id }, :class => "action show") %>
 				<%= link_to("Edit", {:action => "edit" , :id => product.id }, :class => "action edit") %>
 				<%= link_to("Delete", {:action => "delete" , :id  => product.id }, :class => "action delete") %>
+				<%= button_to 'Add To Cart', line_items_path(product_id: product) %>
 		</td>	
 	</tr>
    <% end %>

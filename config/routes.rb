@@ -1,5 +1,9 @@
 Paddyshop::Application.routes.draw do
   
+  resources :line_items
+
+  resources :carts
+
   #get "products/index"
   #get "products/new"
   #get "products/edit"
