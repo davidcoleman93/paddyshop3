@@ -18,7 +18,7 @@
 		<td><%= @product.category %></td>
 	    </tr>
 		<th>Image</th>
-		<td><%= @product.image %></td>
+		<td><%= image_tag(@product.image, :size => '50x50')%></td>
 	    </tr>
 		<th>Stock Level</th>
 		<td><%= @product.stock_level %></td>

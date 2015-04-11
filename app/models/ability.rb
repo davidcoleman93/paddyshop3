@@ -16,7 +16,14 @@ class Ability
 		can :update, Post do |post|
 			post && post.user_id == user.id
 		end
-		can :read, :all
+		can :manage, Cart
+		can :update, User do |post|
+			user && user == user.id
+		end
+		can :read, Product
+		can :update, Order
+		can :manage, LineItem
+		#can :read, :all
 	  end
 	  
   
