@@ -12,6 +12,8 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+		@order = Order.find(params[:id])
+		@line_items = LineItem.where(order_id: @order.id)
   end
 
   # GET /orders/new
@@ -33,8 +35,13 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+	#@order.name = current_user.name
+	@order.address = current_user.shipping_address
+	@order.email = current_user.email
+	@order.user_id = current_user.id
 	@order.add_line_items_from_cart(@cart)
-
+	
+	
     respond_to do |format|
       if @order.save
 		#Cart.destroy(session)

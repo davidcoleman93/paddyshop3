@@ -47,6 +47,7 @@ class UsersController < ApplicationController
 
   def show
 	@user = User.find(params[:id])
+	@orders = Order.where(user_id: current_user.id)
   end
 end
 
@@ -55,5 +56,5 @@ private
 	#same as using “params[:user]”, except that it:
 	# - raises an error if :user is not present
 	# - allows listed attributes to be mass-assigned
-		params.require(:user).permit(:first_name, :last_name, :gender, :password, :password_confirmation, :email, :DOB)
+		params.require(:user).permit(:first_name, :last_name, :gender, :password, :password_confirmation, :email, :DOB, :shipping_address, :card_number)
 	end

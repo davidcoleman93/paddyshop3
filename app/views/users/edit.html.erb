@@ -26,6 +26,13 @@
 	<th>Email</th>
 	<td><%= f.text_field(:email) %></td>
     </tr>
+	<th>Shipping Address</th>
+	<td><%= f.text_field(:shipping_address) %></td>
+    </tr>
+	<tr>
+	<th>Card Number</th>
+	<td><%= f.text_field(:card_number) %></td>
+    </tr>
 	<tr>
 	<th>DOB</th>
 	<td><%= f.date_select(:DOB, :order => [:day, :month, :year], :start_year => 2015, :end_year => 1910) %></td>

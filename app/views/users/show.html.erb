@@ -20,9 +20,35 @@
 		<th>Email</th>
 		<td><%= @user.email %></td>
 	    </tr>
-		<th>DOB</th>
-		<td><%= @user.DOB %></td>
+		<th>Shipping Address</th>
+		<td><%= @user.shipping_address %></td>
+	    </tr>
+		<th>Card Number</th>
+		<td><%= @user.card_number %></td>
 	    </tr>
 		<tr>
 	</table>
+	
+	<h1>Orders made:</h1>
+<table>
+<thead>
+    <tr>
+	  <th>Order ID</th>
+      <th>Order made at</th>
+      <th></th>
+	  <th></th>
+    </tr>
+  </thead>
+<tbody>
+	<% @orders.each do |order| %>
+		<tr>
+			<td><%= order.id %></td>
+			<td><%= order.created_at %></td>
+			<td><%= link_to 'Show', order %></td>
+			<td><%= link_to 'Edit', edit_order_path(order) %></tf>
+		</tr>
+	<% end %>
+</tbody>
+	
+	
 	<%= link_to("Back to users",{:action => "index"}) %>

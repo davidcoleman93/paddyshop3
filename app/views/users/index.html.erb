@@ -16,6 +16,8 @@
 	<th>Gender</th>
 	<th>Email</th>
 	<th>DOB</th>
+	<th>Shipping Address</th>
+	<th>Card Number</th>
 <% @users.each do |user| %>
 <tr>
 <td>
@@ -29,6 +31,10 @@
 		<td><%= user.email %></td>
 		
 		<td><%= user.DOB %></td>
+		
+		<td><%= user.shipping_address %></td>
+		
+		<td><%= user.card_number %></td>
 		
 		<td class = "actions">
 				<%= link_to("Show", {:action => "show" , :id => user.id }, :class => "action show") %>
